@@ -1,0 +1,362 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="18dp" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="${relativePackage}.${activityClass}" >
+
+        <RelativeLayout
+            android:id="@+id/TextDisplay1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/template1"
+                android:layout_width="330dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="5dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:src="@drawable/b1" />
+
+            <TextView
+                android:id="@+id/EmailTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/template1"
+                android:layout_below="@+id/NameTextView1"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="28dp"
+                android:text="john.carter@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/PhoneNumberTextView1"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/EmailTextView1"
+                android:layout_below="@+id/EmailTextView1"
+                android:layout_marginTop="20dp"
+                android:text="+1(234)567-8900"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/NameTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/template1"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="90dp"
+                android:text="John Carter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/TextDisplay2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/template2"
+                android:layout_width="330dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="5dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:src="@drawable/b2" />
+
+            <TextView
+                android:id="@+id/PhoneNumberTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/EmailTextView2"
+                android:layout_alignBottom="@+id/EmailTextView2"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:paddingRight="20dp"
+                android:text="+1(234)567-8900"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/NameTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="54dp"
+                android:text="John Carter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/EmailTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/template2"
+                android:layout_below="@+id/NameTextView2"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="23dp"
+                android:text="john.carter@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000"
+                android:textSize="13sp"
+                android:typeface="serif" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/TextDisplay3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/template3"
+                android:layout_width="330dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="5dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:src="@drawable/b3" />
+
+            <TextView
+                android:id="@+id/EmailTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/template3"
+                android:layout_below="@+id/NameTextView3"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="23dp"
+                android:text="john.carter@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#f2c512"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/NameTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/EmailTextView3"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="54dp"
+                android:text="John Carter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#f2c512"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/PhoneNumberTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/EmailTextView3"
+                android:layout_alignBottom="@+id/EmailTextView3"
+                android:layout_alignRight="@+id/template3"
+                android:layout_marginRight="14dp"
+                android:paddingRight="20dp"
+                android:text="+1(234)567-8900"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#f2c512"
+                android:textSize="13sp"
+                android:typeface="serif" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/TextDisplay4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/template4"
+                android:layout_width="330dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="5dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:src="@drawable/b4" />
+
+            <TextView
+                android:id="@+id/NameTextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="100dp"
+                android:text="John Carter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/PhoneNumberTextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/template4"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="44dp"
+                android:layout_marginRight="18dp"
+                android:paddingRight="20dp"
+                android:text="+1(234)567-8900"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/EmailTextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/PhoneNumberTextView4"
+                android:layout_alignRight="@+id/template4"
+                android:layout_marginRight="10dp"
+                android:text="john.carter@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/TextDisplay5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/template5"
+                android:layout_width="330dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="5dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:src="@drawable/b5" />
+
+            <TextView
+                android:id="@+id/NameTextView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/template5"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="John Carter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fcf903"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/PhoneNumberTextView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="190dp"
+                android:paddingRight="10dp"
+                android:text="+1(234)567-8900"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/EmailTextView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/NameTextView5"
+                android:layout_marginTop="190dp"
+                android:text="john.carter@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/TextDisplay6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/template6"
+                android:layout_width="330dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="5dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:src="@drawable/b6" />
+
+            <TextView
+                android:id="@+id/NameTextView6"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_toLeftOf="@+id/EmailTextView6"
+                android:paddingRight="3dp"
+                android:text="John Carter"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/PhoneNumberTextView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/template6"
+                android:layout_marginBottom="44dp"
+                android:layout_marginLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="+1(234)567-8900"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/EmailTextView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/PhoneNumberTextView6"
+                android:layout_alignLeft="@+id/template6"
+                android:layout_marginLeft="15dp"
+                android:text="john.carter@gmail.com"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fff"
+                android:textSize="13sp"
+                android:typeface="serif" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_landscape_blur"
+    android:gravity="center"
+    tools:context="singh.saurabh.connect.Contacts_List$PlaceholderFragment" >
+
+    <RelativeLayout
+        android:id="@+id/business_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/business_card_thumbnail"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/print_person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="28dp"
+            android:text="Name"
+            android:textAlignment="textStart"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/print_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView1"
+            android:layout_alignRight="@+id/print_email"
+            android:layout_marginBottom="50dp"
+            android:gravity="left"
+            android:text="Phone #"
+            android:textAlignment="textStart"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/print_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/print_phone_number"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_marginBottom="22dp"
+            android:layout_marginRight="40dp"
+            android:gravity="left"
+            android:text="Email"
+            android:textAlignment="textStart"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:typeface="serif" />
+        
+        <Button
+            android:id="@+id/fb_button_profile_display"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:layout_above="@+id/print_email"
+            android:layout_alignRight="@+id/print_email"
+            android:layout_marginBottom="105dp"
+            android:background="@drawable/fb"
+            android:onClick="onFaceBookClick" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

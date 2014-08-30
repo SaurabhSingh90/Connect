@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/b4_blur"
+    android:gravity="top|center" >
+
+    <RelativeLayout
+        android:id="@+id/TextDisplay4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:id="@+id/template4"
+            android:layout_width="330dp"
+            android:layout_height="230dp"
+            android:layout_marginLeft="5dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:src="@drawable/b4" />
+
+        <TextView
+            android:id="@+id/NameTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/template4"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="100dp"
+            android:text="John Carter"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/PhoneNumberTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/template4"
+            android:layout_alignRight="@id/template4"
+            android:layout_marginBottom="44dp"
+            android:layout_marginRight="10dp"
+            android:text="+1(234)567-8900"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/EmailTextView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/PhoneNumberTextView4"
+            android:layout_alignRight="@+id/template4"
+            android:layout_marginRight="10dp"
+            android:text="john.carter@gmail.com"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            android:typeface="serif" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@+id/NameTextView4"
+            android:layout_alignTop="@+id/EmailTextView4"
+            android:onClick="onFaceBookClick"
+            android:src="@drawable/fb" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

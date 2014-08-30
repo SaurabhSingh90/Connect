@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="#9e9e9e"
+    android:gravity="center|top"
+    tools:context="singh.saurabh.connect.Contacts_List$PlaceholderFragment" >
+
+    <RelativeLayout
+        android:id="@+id/business_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/business_card_thumbnail"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/print_person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="80dp"
+            android:layout_marginLeft="26dp"
+            android:text="Name"
+            android:textAlignment="textStart"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/print_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageView1"
+            android:layout_alignTop="@+id/print_person_name"
+            android:layout_marginRight="17dp"
+            android:layout_marginTop="30dp"
+            android:gravity="left"
+            android:text="Email"
+            android:textAlignment="textStart"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/print_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/print_email"
+            android:layout_below="@+id/print_email"
+            android:layout_marginTop="8dp"
+            android:gravity="left"
+            android:text="Phone #"
+            android:textAlignment="textStart"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:typeface="serif" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
