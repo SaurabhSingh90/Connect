@@ -166,25 +166,6 @@ public class Contacts_List extends Activity {
     	Cursor my_cursor = myDB.getRow(MainActivity.my_Id);
     	if (my_cursor.moveToFirst()) {
     		if (my_cursor.getString(DBAdapter.COL_FB_PROFILE).compareTo("") != 0) {
-//        		String urlFb = "https://www.facebook.com/"+my_cursor.getString(DBAdapter.COL_FB_PROFILE);
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse(urlFb));
-//
-//                // If a Facebook app is installed, use it. Otherwise, launch
-//                // a browser
-//                final PackageManager packageManager = getPackageManager();
-//                List<ResolveInfo> list =
-//                    packageManager.queryIntentActivities(intent,
-//                    PackageManager.MATCH_DEFAULT_ONLY);
-//                if (list.size() == 0) {
-//                    String urlBrowser = "https://www.facebook.com/"+my_cursor.getString(DBAdapter.COL_FB_PROFILE);
-//                    intent.setData(Uri.parse(urlBrowser));
-//                }
-//
-//                startActivity(intent);
-//    			Toast.makeText(getApplicationContext(), 
-//    					"a"+x+my_cursor.getString(DBAdapter.COL_FB_PROFILE)+"b", 
-//    					Toast.LENGTH_SHORT).show();
     			Intent facebookIntent = getOpenFacebookIntent(this, my_cursor);
     			startActivity(facebookIntent);
         	}
@@ -216,55 +197,5 @@ public class Contacts_List extends Activity {
         }
     }
     
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.main, menu);
-//		return true;
-//	}
-//
-//	@Override
-//	public boolean onOptionsItemSelected(MenuItem item) {
-//		// Handle action bar item clicks here. The action bar will
-//		// automatically handle clicks on the Home/Up button, so long
-//		// as you specify a parent activity in AndroidManifest.xml.
-//		int id = item.getItemId();
-//		if (id == R.id.action_settings) {
-//        	startActivity(new Intent(Settings.ACTION_NFC_SETTINGS));
-//            return true;
-//        }
-//        if (id == R.id.contacts_list) {
-//        	Cursor my_cursor2 = myDB.getRow(MainActivity.my_Id);
-//        	if (!my_cursor2.moveToFirst()) {
-//				Toast.makeText(getApplicationContext(), 
-//						"No profile created yet.\nCreate your profile first", 
-//						Toast.LENGTH_SHORT).show();
-//				Intent start_my_profile_activity = new Intent(this, Profile_Page.class);
-//				Contacts_List.this.startActivity(start_my_profile_activity);
-//			}
-//        	else {
-//        		Intent contacts_list = new Intent(this, Contacts_List.class);
-//        		Contacts_List.this.startActivity(contacts_list);
-//        	}
-//
-//        }
-//        if (id == R.id.profile) {
-//        	Intent profile_page = new Intent(this, Profile_Page.class);
-//        	Contacts_List.this.startActivity(profile_page);
-//            return true;
-//        }
-//        if (id == R.id.help) {
-//        	Intent about = new Intent(this, Info.class);
-//        	Contacts_List.this.startActivity(about);
-//        	return true;
-//        }
-//        if (id == R.id.list_of_contacts) {
-//        	Intent list_of_contacts = new Intent(this, List_of_Contacts.class);
-//        	Contacts_List.this.startActivity(list_of_contacts);
-//        	return true;
-//        }
-//		return super.onOptionsItemSelected(item);
-//	}
 
 }

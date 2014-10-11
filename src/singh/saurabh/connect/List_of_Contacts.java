@@ -32,13 +32,7 @@ import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.RawContacts;
 
 public class List_of_Contacts extends Activity {
-	/*
-	 * Steps to using the DB:
-	 * 1. Instantiate the DB Adapter
-	 * 2. Open the DB
-	 * 3. Use get, insert, delete, .. to change data.
-	 * 4. Close the DB
-	 */
+
 	DBAdapter myDB;
 	 private List<RelativeLayout> layoutContainers = new ArrayList<RelativeLayout>();
 	 private List<TextView> textContainers = new ArrayList<TextView>();
@@ -96,10 +90,6 @@ public class List_of_Contacts extends Activity {
             
             //padding for TextViews and RelativeLayout
             rv2.setPadding(0, 0, 0, 10);
-//            tV1.setPadding(38, 0, 0, 0);
-//            tV2.setPadding(0, 0, 32, 9);
-//            tV3.setPadding(0, 0, 32, 40);
-//            fb.setPadding(0, 0, 32, 80);
             
             //add to layout
             rv2.addView(ib);
@@ -412,86 +402,14 @@ public class List_of_Contacts extends Activity {
 				}
 			});
     		
-    		//contact saving through business card long press
-    		ib.setOnLongClickListener(new View.OnLongClickListener() {
-				
-				@Override
-				public boolean onLongClick(View v) {
-					new AlertDialog.Builder(List_of_Contacts.this).setTitle("Save or Delete this contact?")
-		            .setPositiveButton("Save", new DialogInterface.OnClickListener() {
-		                @Override
-		                public void onClick(DialogInterface arg0, int arg1) {
-		                	String name = my_cursor.getString(DBAdapter.COL_NAME);
-		                	String phone = my_cursor.getString(DBAdapter.COL_PHONE_NUMBER);
-		                	String email = my_cursor.getString(DBAdapter.COL_EMAIL);
-		                	ContentValues values = new ContentValues();
-		                	
-		                	values.put(Data.DISPLAY_NAME, name);
-							Context c = getApplication();
-							Uri rawContactUri = c .getContentResolver().insert(RawContacts.CONTENT_URI, values);
-		                	long rawContactId = ContentUris.parseId(rawContactUri);
-		                	
-		                	values.clear();
-		                	values.put(Phone.NUMBER, phone);
-		                	values.put(Phone.TYPE, Phone.TYPE_WORK);
-		                	values.put(Phone.MIMETYPE, Phone.CONTENT_ITEM_TYPE);
-		                	values.put(Data.RAW_CONTACT_ID, rawContactId);
-		                	c.getContentResolver().insert(Data.CONTENT_URI, values);
-
-		                	values.clear();
-		                	values.put(Email.ADDRESS, email);
-		                	values.put(Email.TYPE, Email.ADDRESS);
-		                	values.put(Email.MIMETYPE, Email.CONTENT_ITEM_TYPE);
-		                	values.put(Data.RAW_CONTACT_ID, rawContactId);
-		                	c.getContentResolver().insert(Data.CONTENT_URI, values);
-		                	
-		                	values.clear();
-		                	values.put(Data.MIMETYPE, StructuredName.CONTENT_ITEM_TYPE);
-		                	values.put(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, name);
-		                	values.put(Data.RAW_CONTACT_ID, rawContactId);
-		                	c.getContentResolver().insert(Data.CONTENT_URI, values);
-		                	
-		                	Toast.makeText(getApplicationContext(), 
-		        					"Contact Saved", 
-		        					Toast.LENGTH_SHORT).show();
-
-		                }
-		            })
-		            .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-		                @Override
-		                public void onClick(DialogInterface arg0, int arg1) {
-		                	new AlertDialog.Builder(List_of_Contacts.this).setTitle("Once deleted cannot be undone")
-		                	.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-								
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-				                	myDB.deleteRow(temp+1);
-				                	lv.removeView(rv2);
-//				                	recreate();
-								}
-							})
-							.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-								
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-									// TODO Auto-generated method stub
-									
-								}
-							}).show();
-
-		                }
-		            }).show();
-					return true;
-				}
-			});
-    		
-
-//    		ib.setOnClickListener(new View.OnClickListener() {
+    		//contact saving through business card press
+            
+//    		ib.setOnLongClickListener(new View.OnLongClickListener() {
 //				
 //				@Override
-//				public void onClick(View v) {
-//					new AlertDialog.Builder(List_of_Contacts.this).setTitle("Save this contact card into your phonebook?")
-//		            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//				public boolean onLongClick(View v) {
+//					new AlertDialog.Builder(List_of_Contacts.this).setTitle("Save or Delete this contact?")
+//		            .setPositiveButton("Save", new DialogInterface.OnClickListener() {
 //		                @Override
 //		                public void onClick(DialogInterface arg0, int arg1) {
 //		                	String name = my_cursor.getString(DBAdapter.COL_NAME);
@@ -530,15 +448,88 @@ public class List_of_Contacts extends Activity {
 //
 //		                }
 //		            })
-//		            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//		            .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
 //		                @Override
 //		                public void onClick(DialogInterface arg0, int arg1) {
-//		                    
+//		                	new AlertDialog.Builder(List_of_Contacts.this).setTitle("Once deleted cannot be undone")
+//		                	.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//								
+//								@Override
+//								public void onClick(DialogInterface dialog, int which) {
+//				                	myDB.deleteRow(temp+1);
+//				                	lv.removeView(rv2);
+////				                	recreate();
+//								}
+//							})
+//							.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//								
+//								@Override
+//								public void onClick(DialogInterface dialog, int which) {
+//									// TODO Auto-generated method stub
+//									
+//								}
+//							}).show();
+//
 //		                }
 //		            }).show();
-//					
+//					return true;
 //				}
 //			});
+    		
+
+    		ib.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					new AlertDialog.Builder(List_of_Contacts.this).setTitle("Save this contact card into your phonebook?")
+		            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		                @Override
+		                public void onClick(DialogInterface arg0, int arg1) {
+		                	String name = my_cursor.getString(DBAdapter.COL_NAME);
+		                	String phone = my_cursor.getString(DBAdapter.COL_PHONE_NUMBER);
+		                	String email = my_cursor.getString(DBAdapter.COL_EMAIL);
+		                	ContentValues values = new ContentValues();
+		                	
+		                	values.put(Data.DISPLAY_NAME, name);
+							Context c = getApplication();
+							Uri rawContactUri = c .getContentResolver().insert(RawContacts.CONTENT_URI, values);
+		                	long rawContactId = ContentUris.parseId(rawContactUri);
+		                	
+		                	values.clear();
+		                	values.put(Phone.NUMBER, phone);
+		                	values.put(Phone.TYPE, Phone.TYPE_WORK);
+		                	values.put(Phone.MIMETYPE, Phone.CONTENT_ITEM_TYPE);
+		                	values.put(Data.RAW_CONTACT_ID, rawContactId);
+		                	c.getContentResolver().insert(Data.CONTENT_URI, values);
+
+		                	values.clear();
+		                	values.put(Email.ADDRESS, email);
+		                	values.put(Email.TYPE, Email.ADDRESS);
+		                	values.put(Email.MIMETYPE, Email.CONTENT_ITEM_TYPE);
+		                	values.put(Data.RAW_CONTACT_ID, rawContactId);
+		                	c.getContentResolver().insert(Data.CONTENT_URI, values);
+		                	
+		                	values.clear();
+		                	values.put(Data.MIMETYPE, StructuredName.CONTENT_ITEM_TYPE);
+		                	values.put(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, name);
+		                	values.put(Data.RAW_CONTACT_ID, rawContactId);
+		                	c.getContentResolver().insert(Data.CONTENT_URI, values);
+		                	
+		                	Toast.makeText(getApplicationContext(), 
+		        					"Contact Saved", 
+		        					Toast.LENGTH_SHORT).show();
+
+		                }
+		            })
+		            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+		                @Override
+		                public void onClick(DialogInterface arg0, int arg1) {
+		                    
+		                }
+		            }).show();
+					
+				}
+			});
     		
     		temp--;
     	}
@@ -610,25 +601,6 @@ public class List_of_Contacts extends Activity {
 		
 		if (cursor.moveToFirst()) {
     		if (cursor.getString(DBAdapter.COL_FB_PROFILE).compareTo("") != 0) {
-//        		String urlFb = "https://www.facebook.com/"+my_cursor.getString(DBAdapter.COL_FB_PROFILE);
-//                Intent intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse(urlFb));
-//
-//                // If a Facebook app is installed, use it. Otherwise, launch
-//                // a browser
-//                final PackageManager packageManager = getPackageManager();
-//                List<ResolveInfo> list =
-//                    packageManager.queryIntentActivities(intent,
-//                    PackageManager.MATCH_DEFAULT_ONLY);
-//                if (list.size() == 0) {
-//                    String urlBrowser = "https://www.facebook.com/"+my_cursor.getString(DBAdapter.COL_FB_PROFILE);
-//                    intent.setData(Uri.parse(urlBrowser));
-//                }
-//
-//                startActivity(intent);
-//    			Toast.makeText(getApplicationContext(), 
-//    					"a"+x+my_cursor.getString(DBAdapter.COL_FB_PROFILE)+"b", 
-//    					Toast.LENGTH_SHORT).show();
     			Intent facebookIntent = getOpenFacebookIntent(this, cursor);
     			startActivity(facebookIntent);
         	}
@@ -641,41 +613,6 @@ public class List_of_Contacts extends Activity {
     		Toast.makeText(getApplicationContext(), 
 					"Facebook profile not attached", 
 					Toast.LENGTH_SHORT).show();
-    	
-//		String urlBrowser = "https://www.facebook.com/"+cursor.getString(DBAdapter.COL_FB_PROFILE);
-//		//String urlFb = "fb://profile/"+cursor.getString(DBAdapter.COL_FB_PROFILE);
-//        Intent intent = new Intent(Intent.ACTION_VIEW);
-//        intent.setData(Uri.parse(urlBrowser));
-//
-//        // If a Facebook app is installed, use it. Otherwise, launch
-//        // a browser
-//        final PackageManager packageManager = getPackageManager();
-//        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-//        if (list.size() == 0) {
-//            //String urlBrowser = "https://www.facebook.com/"+cursor.getString(DBAdapter.COL_FB_PROFILE);
-//            intent.setData(Uri.parse(urlBrowser));
-//        }
-//
-//        startActivity(intent);
-//		
-//		Intent facebookIntent = getOpenFacebookIntent(this, cursor);
-//		startActivity(facebookIntent);
-//		
-//		Context context = this;
-//		try {
-//            context.getPackageManager()
-//                    .getPackageInfo("com.facebook.katana", 0); //Checks if FB is even installed.
-//            Toast.makeText(context, 
-//            		cursor.getString(DBAdapter.COL_FB_PROFILE), 
-//					Toast.LENGTH_SHORT).show();
-//            Intent facebookIntent =  new Intent(Intent.ACTION_VIEW,
-//                    Uri.parse("fb://profile/"+cursor.getString(DBAdapter.COL_FB_PROFILE))); //Trys to make intent with FB's URI
-//            startActivity(facebookIntent);
-//        } catch (Exception e) {
-//        	Intent facebookIntent =  new Intent(Intent.ACTION_VIEW,
-//                    Uri.parse("https://www.facebook.com/"+cursor.getString(DBAdapter.COL_FB_PROFILE))); //catches and opens a url to the desired page
-//        	startActivity(facebookIntent);
-//        }
 	}
 	
 	public static Intent getOpenFacebookIntent(Context context, Cursor my_cursor) {
@@ -692,57 +629,4 @@ public class List_of_Contacts extends Activity {
                     Uri.parse("https://www.facebook.com/app_scoped_user_id/"+my_cursor.getString(DBAdapter.COL_FB_PROFILE))); //catches and opens a url to the desired page
         }
     }
-	
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.main, menu);
-//		return true;
-//	}
-//
-//	@SuppressLint("InlinedApi")
-//	@Override
-//	public boolean onOptionsItemSelected(MenuItem item) {
-//		// Handle action bar item clicks here. The action bar will
-//		// automatically handle clicks on the Home/Up button, so long
-//		// as you specify a parent activity in AndroidManifest.xml.
-//		int id = item.getItemId();
-//		if (id == R.id.action_settings) {
-//        	startActivity(new Intent(Settings.ACTION_NFC_SETTINGS));
-//            return true;
-//        }
-//        if (id == R.id.contacts_list) {
-//        	Cursor my_cursor2 = myDB.getRow(MainActivity.my_Id);
-//        	if (!my_cursor2.moveToFirst()) {
-//				Toast.makeText(getApplicationContext(), 
-//						"No profile created yet.\nCreate your profile first", 
-//						Toast.LENGTH_SHORT).show();
-//				Intent start_my_profile_activity = new Intent(this, Profile_Page.class);
-//				List_of_Contacts.this.startActivity(start_my_profile_activity);
-//			}
-//        	else {
-//        		Intent contacts_list = new Intent(this, Contacts_List.class);
-//        		List_of_Contacts.this.startActivity(contacts_list);
-//        	}
-//        	return true;
-//        }
-//        if (id == R.id.profile) {
-//        	Intent profile_page = new Intent(this, Profile_Page.class);
-//        	List_of_Contacts.this.startActivity(profile_page);
-//            return true;
-//        }
-//        if (id == R.id.help) {
-//        	Intent about = new Intent(this, Info.class);
-//        	List_of_Contacts.this.startActivity(about);
-//        	return true;
-//        }
-//        if (id == R.id.list_of_contacts) {
-//        	Intent list_of_contacts = new Intent(this, List_of_Contacts.class);
-//        	List_of_Contacts.this.startActivity(list_of_contacts);
-//        	return true;
-//        }
-//		return super.onOptionsItemSelected(item);
-//	}
-
 }
